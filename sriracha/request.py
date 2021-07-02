@@ -6,7 +6,14 @@ class Request:
     note: there should be a cookies method and other methods that modify something on the response, how would we go about doing that? no idea how we'll link the request and response
     """
 
-    def __init__(self, address, path, headers):
-        self.address = address
-        self.path = path
-        self.headers = headers
+    def __init__(self, environ):
+        self.method = environ['REQUEST_METHOD']
+        self.query_string = environ['QUERY_STRING']
+
+        # apparently dict comprehasions exist!  i noticed on gunicorn
+        # (hopefully same on all servers) that all headers are prefixed with
+        # HTTP_ on environ
+        self.headers = { key.split('HTTP_')[1] : value in environ.items() }
+
+        self.address = (environ['REMOTE_ADDR'], environ['REMOTE_PORT'])
+        self.path = environ['PATH_INFO']
