@@ -47,10 +47,10 @@ class Application:
         response = controller.handle_request(request)
 
         # get status code from response
-        status = 80
+        status = '80'
 
         if type(response) == tuple and type(response[0]) == int:
-            status = response[0]
+            status = str(response[0])
 
         # get response headers
         headers = request.response_headers
