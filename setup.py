@@ -9,8 +9,7 @@ setup(
     author_email='crunch@disroot.org',
 
     packages=find_packages(),
-
-    required_packages=['python-liquid'],
+    install_requires=['python-liquid'],
 
     license='GPL',
     license_file='LICENSE'
