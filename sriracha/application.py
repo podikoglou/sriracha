@@ -73,6 +73,4 @@ class Application:
         # respond
         start_response(status, headers)
 
-            return [response[1]]
-        else:
-            return [content]
+        return [content + '\n']
