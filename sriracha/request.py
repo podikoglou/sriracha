@@ -40,3 +40,4 @@ class Request:
         """
 
         self.response_cookies[cookie] = value
+        self.cookies[cookie] = value
