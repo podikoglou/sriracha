@@ -10,6 +10,8 @@ setup(
 
     packages=find_packages(),
 
+    required_packages=['python-liquid'],
+
     license='GPL',
     license_file='LICENSE'
 )

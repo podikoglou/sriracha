@@ -1,15 +1,15 @@
+from liquid import Template, Environment, FileSystemLoader
+
+env = Environment(loader=FileSystemLoader('views/'))
+cache = {}
+
 def render_view(name, model):
     """
     renders a view with a model using liquid i think
-
-    CODE BELOW IS A SHITTY IMPLEMENTATION
-    CODE BELOW IS A SHITTY IMPLEMENTATION
-    CODE BELOW IS A SHITTY IMPLEMENTATION
-    CODE BELOW IS A SHITTY IMPLEMENTATION
-    CODE BELOW IS A SHITTY IMPLEMENTATION
-    CODE BELOW IS A SHITTY IMPLEMENTATION
-    CODE BELOW IS A SHITTY IMPLEMENTATION
     """
 
-    with open('views/' + name + '.html', 'r') as file:
-        return file.read()
+    # cache the template if it's not already cached
+    if not name in cache:
+        cache[name] = env.get_template('{}.html'.format(name))
+
+    return cache[name].render(**model)
