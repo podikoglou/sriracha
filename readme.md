@@ -21,7 +21,7 @@ Nope, haven't uploaded it to Pyπ yet.
 
 ## What templating engine does it use?
 [Liquid](https://shopify.github.io/liquid/),
-[this](https://github.com/jg-rp/liquid) implementation. If you have experience
+[this implementation](https://github.com/jg-rp/liquid). If you have experience
 with Jekyll or Shopify, you might be familiar with its syntax.
 
 ## Is it fast?
