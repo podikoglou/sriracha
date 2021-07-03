@@ -47,7 +47,7 @@ class Application:
         response = controller.handle_request(request)
 
         # get status code from response
-        status = '80'
+        status = '200 OK'
 
         if type(response) == tuple and type(response[0]) == int:
             status = str(response[0])
