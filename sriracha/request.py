@@ -2,8 +2,6 @@ class Request:
     """
     A request is sadly a class (we might take a different approach to this
     later, perhaps a dict) that represents a HTTP request.
-
-    note: there should be a cookies method and other methods that modify something on the response, how would we go about doing that? no idea how we'll link the request and response
     """
 
     def __init__(self, environ):
@@ -17,3 +15,15 @@ class Request:
 
         self.address = (environ['REMOTE_ADDR'], environ['REMOTE_PORT'])
         self.path = environ['PATH_INFO']
+        
+        self.response_headers = []
+
+    def header(header, value):
+        """
+        sets a response header 
+        
+        todo: do the same for cookies
+        """
+
+        self.response_headers[header] = value
+
