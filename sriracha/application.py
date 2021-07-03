@@ -56,7 +56,7 @@ class Application:
             if type(response[0]) == int:
                 status = str(response[0])
         else:
-            content = response[1]
+            content = response
             status = '200 OK'
 
         # get response headers
@@ -73,4 +73,5 @@ class Application:
         # respond
         start_response(status, headers)
 
-        return [content + '\n']
+        print(content)
+        return [content]
