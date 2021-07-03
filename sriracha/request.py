@@ -17,7 +17,10 @@ class Request:
         self.path = environ['PATH_INFO']
    
         # please work
-        self.cookies = [tuple(cookie.split('=')) for cookie in self.headers['COOKIE'].split('; ')]
+        if 'COOKIE' in self.headers:
+            self.cookies = [tuple(cookie.split('=')) for cookie in self.headers['COOKIE'].split('; ')]
+        else:
+            self.cookies = []
 
         self.response_headers = []
         self.response_cookies = []
