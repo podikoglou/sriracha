@@ -16,8 +16,7 @@ cd myproject
 
 # FAQ
 ## Can I use it?
-~~Sure, go ahead. You can get started with [Quick Start](#quick-start)~~
-Nope, haven't uploaded it to Pyπ yet.
+Sure, go ahead. You can get started with [Quick Start](#quick-start)
 
 ## What templating engine does it use?
 [Liquid](https://shopify.github.io/liquid/),
