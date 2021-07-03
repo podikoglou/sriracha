@@ -43,12 +43,24 @@ class Application:
         request = Request(environ)
         controller = self.find_controller_by_path(request.path)
 
+        # handle the request
         response = controller.handle_request(request)
+
+        # get status code from response
         status = 80
 
         if type(response) == tuple and type(response[0]) == int:
             status = response[0]
 
+        # get response headers
+        headers = request.response_headers
+
+        # get new cookies
+        for cookie in request.response_cookies:
+            # can probably use join on that
+            headers.append(('Set-Cookie', '{}={}'.format(cookie[0], cookie[1])))
+
+        # respond
         start_response(status, request.response_headers)
 
         if type(response) == tuple:

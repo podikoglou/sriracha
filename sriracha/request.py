@@ -17,13 +17,18 @@ class Request:
         self.path = environ['PATH_INFO']
         
         self.response_headers = []
+        self.response_cookies = []
 
     def header(header, value):
         """
         sets a response header 
-        
-        todo: do the same for cookies
         """
 
-        self.response_headers[header] = value
+        self.response_headers.append((header, value))
 
+    def cookie(cookie, value):
+        """
+        sets a cookie
+        """
+
+        self.response_cookies.append((cookie, value))
