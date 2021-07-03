@@ -2,8 +2,9 @@
 > I put that on everything!
 
 Sriracha is an MVC web framework written in Python with the purpose of making
-big web applications easy, it serves as the Python equivalent of something like
-Rails for Ruby, Spring for Java, and could be seen somewhat similar to Angular.
+big and complex web applications easy to maintain, it serves as the Python
+equivalent of something like Rails for Ruby, Spring for Java, and could be seen
+somewhat similar to Angular.
 
 # Quick Start
 ```bash
