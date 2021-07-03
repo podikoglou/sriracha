@@ -6,7 +6,7 @@ with open('readme.md', 'r') as file:
 
 setup(
     name='sriracha',
-    version='0.1',
+    version='0.1.1',
     description='MVC Web Framework',
 
     author='pc',
