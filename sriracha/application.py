@@ -46,11 +46,18 @@ class Application:
         # handle the request
         response = controller.handle_request(request)
 
-        # get status code from response
-        status = '200 OK'
+        # get status code and content from response
+        status = ''
+        content = ''
 
-        if type(response) == tuple and type(response[0]) == int:
-            status = str(response[0])
+        if type(response) == tuple:
+            content = response[1]
+
+            if type(response[0]) == int:
+                status = str(response[0])
+        else:
+            content = response[1]
+            status = '200 OK'
 
         # get response headers
         headers = request.response_headers
@@ -66,7 +73,6 @@ class Application:
         # respond
         start_response(status, headers)
 
-        if type(response) == tuple:
             return [response[1]]
         else:
-            return [response]
+            return [content]
