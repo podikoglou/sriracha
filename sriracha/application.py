@@ -52,6 +52,6 @@ class Application:
         start_response(status, request.response_headers)
 
         if type(response) == tuple:
-            return [response[0]]
+            return [response[1]]
         else:
-            return responsk
+            return response
