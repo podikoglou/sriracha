@@ -15,7 +15,10 @@ class Request:
 
         self.address = (environ['REMOTE_ADDR'], environ['REMOTE_PORT'])
         self.path = environ['PATH_INFO']
-        
+   
+        # please work
+        self.cookies = [tuple(cookie.split('=')) for cookie in headers['COOKIE'].split('; ')]
+
         self.response_headers = []
         self.response_cookies = []
 
