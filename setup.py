@@ -1,5 +1,9 @@
 from setuptools import setup, find_packages
 
+# load readme
+with open('README.md', 'r') as file:
+    readme = file.read()
+
 setup(
     name='sriracha',
     version='0.1',
@@ -7,6 +11,9 @@ setup(
 
     author='pc',
     author_email='crunch@disroot.org',
+
+    long_description=readme,
+    long_description_content_type='text/markdown',
 
     packages=find_packages(),
 
