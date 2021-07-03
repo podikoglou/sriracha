@@ -8,7 +8,7 @@ somewhat similar to Angular.
 
 # Quick Start
 ```bash
-python3 -m pip install sri
+python3 -m pip install sriracha
 sri new myproject
 cd myproject
 ./bin/dev-start
