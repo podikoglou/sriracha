@@ -64,9 +64,9 @@ class Application:
             headers.append(('Set-Cookie', '{}={}'.format(cookie, value)))
 
         # respond
-        start_response(status, request.response_headers)
+        start_response(status, headers)
 
         if type(response) == tuple:
             return [response[1]]
         else:
-            return response
+            return [response]
