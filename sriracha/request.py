@@ -13,7 +13,7 @@ class Request:
         # apparently dict comprehasions exist!  i noticed on gunicorn
         # (hopefully same on all servers) that all headers are prefixed with
         # HTTP_ on environ
-        self.headers = { key.split('HTTP_')[1] : value for key, value in environ.items() }
+        self.headers = { key.split('HTTP_')[1] : value for key, value in environ.items() if 'HTTP_' in key }
 
         self.address = (environ['REMOTE_ADDR'], environ['REMOTE_PORT'])
         self.path = environ['PATH_INFO']
