@@ -27,14 +27,14 @@ class Request:
         self.response_headers = []
         self.response_cookies = []
 
-    def header(header, value):
+    def header(self, header, value):
         """
         sets a response header 
         """
 
         self.response_headers.append((header, value))
 
-    def cookie(cookie, value):
+    def cookie(self, cookie, value):
         """
         sets a cookie
         """
