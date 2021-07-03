@@ -43,6 +43,10 @@ class Application:
         request = Request(environ)
         controller = self.find_controller_by_path(request.path)
 
+        if controller == None:
+            start_response('404', [('Content-Type', 'text/html')])
+            return [utils.handle_request_err(404)(request)[1].encode()]
+
         # handle the request
         response = controller.handle_request(request)
 
