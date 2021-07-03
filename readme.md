@@ -26,17 +26,19 @@ with Jekyll or Shopify, you might be familiar with its syntax.
 ## Is it fast?
 That depends on your WSGI server! (sometimes.)
 
-I chose [Gunicorn](https://gunicorn.org/) and did a benchmark using [wrk](https://github.com/wg/wrk):
+### Benchmark
+I chose [Gunicorn](https://gunicorn.org/) with 4 workers and did a benchmark using [wrk](https://github.com/wg/wrk) on my Intel i3-8100 (4) @ 3.600GHz computer
+
 ```
-$ gunicorn http://0.0.0.0:8000
+$ wrk http://0.0.0.0:8000
 Running 10s test @ http://0.0.0.0:8000
   2 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     3.21ms  336.15us  12.99ms   92.05%
-    Req/Sec     1.55k    62.25     1.65k    75.50%
-  30797 requests in 10.00s, 11.06MB read
-Requests/sec:   3079.11
-Transfer/sec:      1.11MB
+    Latency     1.02ms    1.32ms  21.23ms   94.11%
+    Req/Sec     6.03k     1.08k    8.27k    60.50%
+  120016 requests in 10.00s, 41.43MB read
+Requests/sec:  11999.54
+Transfer/sec:      4.14MB
 ````
 
 Compared to the results of this (which should be much faster as it doesn't have
@@ -55,9 +57,9 @@ def app(environ, start_response):
 Running 10s test @ http://0.0.0.0:8000
   2 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.34ms  126.20us   5.88ms   97.70%
-    Req/Sec     3.66k   234.92     6.84k    97.51%
-  73109 requests in 10.10s, 10.67MB read
-Requests/sec:   7238.95
-Transfer/sec:      1.06MB
+    Latency   737.09us    1.23ms  20.51ms   95.06%
+    Req/Sec     8.75k     1.09k   10.83k    68.50%
+  174307 requests in 10.01s, 25.43MB read
+Requests/sec:  17421.07
+Transfer/sec:      2.54MB
 ```
