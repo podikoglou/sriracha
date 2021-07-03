@@ -56,9 +56,8 @@ class Application:
         headers = request.response_headers
 
         # get new cookies
-        for cookie in request.response_cookies:
-            # can probably use join on that
-            headers.append(('Set-Cookie', '{}={}'.format(cookie[0], cookie[1])))
+        for cookie, value in request.response_cookies.items():
+            headers.append(('Set-Cookie', '{}={}'.format(cookie, value)))
 
         # respond
         start_response(status, request.response_headers)

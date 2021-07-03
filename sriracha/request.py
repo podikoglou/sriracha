@@ -18,9 +18,11 @@ class Request:
    
         # please work
         if 'COOKIE' in self.headers:
-            self.cookies = [tuple(cookie.split('=')) for cookie in self.headers['COOKIE'].split('; ')]
+            # self.cookies = [tuple(cookie.split('=')) for cookie in self.headers['COOKIE'].split('; ')]
+
+            self.cookies = {cookie.split['='][0] : cookie.split('=')[1] for cookie in self.headers['COOKIE'].split('; ')}
         else:
-            self.cookies = []
+            self.cookies = {}
 
         self.response_headers = []
         self.response_cookies = []
@@ -37,4 +39,4 @@ class Request:
         sets a cookie
         """
 
-        self.response_cookies.append((cookie, value))
+        self.response_cookies[cookie] = value
