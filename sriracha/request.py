@@ -20,7 +20,7 @@ class Request:
         if 'COOKIE' in self.headers:
             # self.cookies = [tuple(cookie.split('=')) for cookie in self.headers['COOKIE'].split('; ')]
 
-            self.cookies = {cookie.split['='][0] : cookie.split('=')[1] for cookie in self.headers['COOKIE'].split('; ')}
+            self.cookies = {cookie.split('=')[0] : cookie.split('=')[1] for cookie in self.headers['COOKIE'].split('; ')}
         else:
             self.cookies = {}
 
