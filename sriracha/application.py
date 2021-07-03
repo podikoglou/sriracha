@@ -55,6 +55,10 @@ class Application:
         # get response headers
         headers = request.response_headers
 
+        # make this: check if there's already a conte-ttype header, depend on
+        # the actual content we're returning 
+        headers.append(('Content-Type', 'text/html'))
+
         # get new cookies
         for cookie, value in request.response_cookies.items():
             headers.append(('Set-Cookie', '{}={}'.format(cookie, value)))
