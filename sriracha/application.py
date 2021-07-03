@@ -73,5 +73,4 @@ class Application:
         # respond
         start_response(status, headers)
 
-        print(content)
-        return [content]
+        return [content.encode()]
