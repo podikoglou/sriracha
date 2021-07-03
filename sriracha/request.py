@@ -25,7 +25,7 @@ class Request:
             self.cookies = {}
 
         self.response_headers = []
-        self.response_cookies = []
+        self.response_cookies = {}
 
     def header(self, header, value):
         """
